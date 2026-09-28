@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Mining Safety AR Training</title>
+
+  <link rel="stylesheet" href="./style.css">
+
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================
+       STATUS
+  ====================================== -->
+
+  <div id="status-banner">
+    🔎 Find and tap the red hazard light.
+  </div>
+
+
+
+  <!-- =====================================
+       MODULE 1 QUESTION
+  ====================================== -->
+
+  <div id="question-panel">
+
+    <h2>
+      ⚠️ FALLING ROCK HAZARD
+    </h2>
+
+    <p>
+      An unstable roof section has been detected.
+    </p>
+
+    <p>
+      <strong>What should you do?</strong>
+    </p>
+
+
+    <button
+      type="button"
+      id="answer-a"
+    >
+      A. Continue working
+    </button>
+
+
+    <button
+      type="button"
+      id="answer-b"
+    >
+      B. Move to a safe area and report the hazard
+    </button>
+
+
+    <button
+      type="button"
+      id="answer-c"
+    >
+      C. Approach the unstable area
+    </button>
+
+  </div>
+
+
+
+  <!-- =====================================
+       MODULE 1 COMPLETE
+  ====================================== -->
+
+  <div id="completion-panel">
+
+    <h2>
+      🎯 MODULE 1 COMPLETE
+    </h2>
+
+
+    <p>
+      You identified the falling-rock hazard
+      and selected the correct safety action.
+    </p>
+
+
+    <div id="score-text">
+      Score: 100%
+    </div>
+
+
+    <h3>
+      Choose Your Next Safety Experience
+    </h3>
+
+
+    <!-- MODULE 1 AGAIN -->
+
+    <button
+      type="button"
+      id="module1-again-button"
+    >
+      🔄 DO MODULE 1 AGAIN
+    </button>
+
+
+    <!-- FIRE -->
+
+    <button
+      type="button"
+      id="fire-button"
+    >
+      🔥 FIRE HAZARD
+    </button>
+
+
+    <!-- GAS -->
+
+    <button
+      type="button"
+      id="gas-button"
+    >
+      ☠️ METHANE GAS LEAK
+    </button>
+
+  </div>
+
+
+
+  <!-- =====================================
+       AR SCENE
+  ====================================== -->
+
+  <a-scene
+
+    mindar-image="
+      imageTargetSrc: ./assets/targets/targets.mind;
+      autoStart: true;
+      uiScanning: true;
+      uiLoading: true;
+      uiError: true;
+    "
+
+    color-space="sRGB"
+
+    renderer="
+      colorManagement: true;
+      physicallyCorrectLights: true;
+    "
+
+    vr-mode-ui="enabled: false"
+
+    device-orientation-permission-ui="enabled: false"
+  >
+
+
+    <!-- =================================
+         LIGHTING
+    ================================== -->
+
+    <a-light
+      type="ambient"
+      color="#ffffff"
+      intensity="1.5">
+    </a-light>
+
+
+    <a-light
+      type="directional"
+      color="#ffffff"
+      intensity="1.2"
+      position="1 3 2">
+    </a-light>
+
+
+
+    <!-- =================================
+         IMAGE TARGET
+    ================================== -->
+
+    <a-entity
+      id="target-0"
+      mindar-image-target="targetIndex: 0"
+    >
+
+
+      <a-entity
+        id="mining-scene"
+        scale="1.5 1.5 1.5"
+      >
+
+
+        <!-- ===============================
+             FLOOR
+        ================================ -->
+
+        <a-box
+          position="0 0 0.1"
+          scale="0.9 0.08 0.75"
+          color="#454545">
+        </a-box>
+
+
+
+        <!-- ===============================
+             FRONT SUPPORTS
+        ================================ -->
+
+        <a-box
+          position="-0.35 0.35 0.08"
+          scale="0.07 0.7 0.07"
+          color="#70451f">
+        </a-box>
+
+
+        <a-box
+          position="0.35 0.35 0.08"
+          scale="0.07 0.7 0.07"
+          color="#70451f">
+        </a-box>
+
+
+        <a-box
+          position="0 0.68 0.08"
+          scale="0.78 0.08 0.07"
+          color="#70451f">
+        </a-box>
+
+
+
+        <!-- ===============================
+             BACK SUPPORTS
+        ================================ -->
+
+        <a-box
+          position="-0.28 0.25 -0.25"
+          scale="0.06 0.5 0.06"
+          color="#603b1d">
+        </a-box>
+
+
+        <a-box
+          position="0.28 0.25 -0.25"
+          scale="0.06 0.5 0.06"
+          color="#603b1d">
+        </a-box>
+
+
+        <a-box
+          position="0 0.5 -0.25"
+          scale="0.65 0.06 0.06"
+          color="#603b1d">
+        </a-box>
+
+
+
+        <!-- ===============================
+             MINE ROOF
+        ================================ -->
+
+        <a-box
+          position="0 0.75 0"
+          scale="0.9 0.12 0.7"
+          color="#303030">
+        </a-box>
+
+
+
+        <!-- ===============================
+             ROOF ROCKS
+        ================================ -->
+
+        <a-sphere
+          position="-0.38 0.82 0.02"
+          radius="0.13"
+          scale="1.4 0.8 1.1"
+          color="#4a4a4a">
+        </a-sphere>
+
+
+        <a-sphere
+          position="-0.15 0.88 0.08"
+          radius="0.16"
+          scale="1.2 0.7 1"
+          color="#555555">
+        </a-sphere>
+
+
+        <a-sphere
+          position="0.08 0.84 0.02"
+          radius="0.14"
+          scale="1.5 0.75 1.1"
+          color="#3f3f3f">
+        </a-sphere>
+
+
+        <a-sphere
+          position="0.32 0.9 0.05"
+          radius="0.17"
+          scale="1.3 0.7 1"
+          color="#505050">
+        </a-sphere>
+
+
+        <a-sphere
+          position="0.48 0.82 0.1"
+          radius="0.11"
+          scale="1.5 0.8 1"
+          color="#454545">
+        </a-sphere>
+
+
+        <a-sphere
+          position="-0.5 0.75 0.12"
+          radius="0.07"
+          color="#666666">
+        </a-sphere>
+
+
+        <a-sphere
+          position="-0.28 0.92 -0.05"
+          radius="0.06"
+          color="#5a5a5a">
+        </a-sphere>
+
+
+        <a-sphere
+          position="0.18 0.95 0.1"
+          radius="0.07"
+          color="#626262">
+        </a-sphere>
+
+
+        <a-sphere
+          position="0.4 0.96 -0.02"
+          radius="0.06"
+          color="#585858">
+        </a-sphere>
+
+
+
+        <!-- ===============================
+             FALLEN ROCKS
+        ================================ -->
+
+        <a-sphere
+          position="-0.18 0.13 0.12"
+          radius="0.10"
+          color="#333333">
+        </a-sphere>
+
+
+        <a-sphere
+          position="0.15 0.10 0.10"
+          radius="0.07"
+          color="#444444">
+        </a-sphere>
+
+
+        <a-sphere
+          position="0.28 0.12 0.08"
+          radius="0.06"
+          color="#555555">
+        </a-sphere>
+
+
+        <a-sphere
+          position="-0.3 0.11 0.05"
+          radius="0.06"
+          color="#555555">
+        </a-sphere>
+
+
+
+        <!-- ===============================
+             RAILS
+        ================================ -->
+
+        <a-box
+          position="0 0.06 -0.18"
+          scale="0.8 0.03 0.03"
+          color="#777777">
+        </a-box>
+
+
+        <a-box
+          position="0 0.06 -0.28"
+          scale="0.8 0.03 0.03"
+          color="#777777">
+        </a-box>
+
+
+
+        <!-- ===============================
+             MINING CART
+        ================================ -->
+
+        <a-box
+          position="0 0.16 -0.23"
+          scale="0.28 0.16 0.22"
+          color="#8a5a2b">
+        </a-box>
+
+
+        <a-cylinder
+          position="-0.09 0.08 -0.23"
+          radius="0.04"
+          height="0.04"
+          rotation="0 0 90"
+          color="#222222">
+        </a-cylinder>
+
+
+        <a-cylinder
+          position="0.09 0.08 -0.23"
+          radius="0.04"
+          height="0.04"
+          rotation="0 0 90"
+          color="#222222">
+        </a-cylinder>
+
+
+
+        <!-- ===============================
+             HAZARD BEACON
+        ================================ -->
+
+        <a-cylinder
+          id="hazard-light"
+          position="0 0.31 0.08"
+          radius="0.055"
+          height="0.09"
+          color="#222222">
+        </a-cylinder>
+
+
+        <a-sphere
+          position="0 0.38 0.08"
+          radius="0.065"
+          color="#ff2020"
+          material="
+            emissive: #ff0000;
+            emissiveIntensity: 0.8;
+          ">
+        </a-sphere>
+
+
+        <a-cylinder
+          position="0 0.25 0.08"
+          radius="0.08"
+          height="0.035"
+          color="#333333">
+        </a-cylinder>
+
+
+
+        <!-- ===============================
+             WARNING SIGN
+        ================================ -->
+
+        <a-box
+          position="0.32 0.3 0.12"
+          scale="0.12 0.16 0.03"
+          color="#ffcc00">
+        </a-box>
+
+
+        <a-box
+          position="0.32 0.16 0.12"
+          scale="0.025 0.18 0.025"
+          color="#444444">
+        </a-box>
+
+
+
+        <!-- ===============================
+             MINING LAMP
+        ================================ -->
+
+        <a-cylinder
+          position="-0.32 0.48 0.1"
+          radius="0.05"
+          height="0.12"
+          color="#222222">
+        </a-cylinder>
+
+
+        <a-sphere
+          position="-0.32 0.4 0.1"
+          radius="0.045"
+          color="#ffffaa">
+        </a-sphere>
+
+
+
+        <!-- ===============================
+             EXTRA EQUIPMENT
+        ================================ -->
+
+        <a-box
+          position="-0.3 0.08 -0.23"
+          scale="0.05 0.02 0.35"
+          color="#6b4423">
+        </a-box>
+
+
+        <a-box
+          position="0.3 0.08 -0.23"
+          scale="0.05 0.02 0.35"
+          color="#6b4423">
+        </a-box>
+
+
+        <a-sphere
+          position="-0.3 0.1 -0.05"
+          radius="0.06"
+          color="#555555">
+        </a-sphere>
+
+
+        <a-sphere
+          position="-0.22 0.09 -0.02"
+          radius="0.045"
+          color="#444444">
+        </a-sphere>
+
+
+
+        <!-- ===============================
+             SIDE ROCK
+        ================================ -->
+
+        <a-sphere
+          position="0.28 0.5 0.08"
+          radius="0.1"
+          scale="1.2 0.8 1"
+          color="#333333">
+        </a-sphere>
+
+      </a-entity>
+
+    </a-entity>
+
+
+
+    <!-- CAMERA -->
+
+    <a-camera
+      position="0 0 0"
+      look-controls="enabled: false">
+    </a-camera>
+
+  </a-scene>
+
+
+
+  <!-- =====================================
+       JAVASCRIPT
+  ====================================== -->
+
+  <script>
+
+
+    /* =================================
+       TRAINING STATE
+    ================================== */
+
+    let trainingState = "idle";
+
+    let buttonLocked = false;
+
+
+
+    /* =================================
+       ELEMENTS
+    ================================== */
+
+    const status =
+      document.getElementById(
+        "status-banner"
+      );
+
+
+    const questionPanel =
+      document.getElementById(
+        "question-panel"
+      );
+
+
+    const completionPanel =
+      document.getElementById(
+        "completion-panel"
+      );
+
+
+    const answerA =
+      document.getElementById(
+        "answer-a"
+      );
+
+
+    const answerB =
+      document.getElementById(
+        "answer-b"
+      );
+
+
+    const answerC =
+      document.getElementById(
+        "answer-c"
+      );
+
+
+    const module1AgainButton =
+      document.getElementById(
+        "module1-again-button"
+      );
+
+
+    const fireButton =
+      document.getElementById(
+        "fire-button"
+      );
+
+
+    const gasButton =
+      document.getElementById(
+        "gas-button"
+      );
+
+
+
+    /* =================================
+       INITIAL STATE
+    ================================== */
+
+    questionPanel.style.display =
+      "none";
+
+
+    completionPanel.style.display =
+      "none";
+
+
+
+    /* =================================
+       FIND HAZARD
+    ================================== */
+
+    document.addEventListener(
+      "touchstart",
+      function (event) {
+
+
+        /*
+          Ignore touches on UI.
+        */
+
+        if (
+          event.target.closest(
+            "#question-panel"
+          ) ||
+
+          event.target.closest(
+            "#completion-panel"
+          )
+        ) {
+          return;
+        }
+
+
+
+        /*
+          Don't detect another hazard
+          after Module 1 is completed.
+        */
+
+        if (
+          trainingState !== "idle"
+        ) {
+          return;
+        }
+
+
+
+        const touch =
+          event.touches[0];
+
+
+        if (!touch) {
+          return;
+        }
+
+
+
+        const x =
+          touch.clientX;
+
+
+        const y =
+          touch.clientY;
+
+
+
+        /*
+          HAZARD HOTSPOT
+        */
+
+        if (
+          x >= 150 &&
+          x <= 300 &&
+          y >= 300 &&
+          y <= 500
+        ) {
+
+
+          trainingState =
+            "question";
+
+
+          status.textContent =
+            "⚠️ HAZARD DETECTED";
+
+
+          status.style.background =
+            "rgba(180, 0, 0, 0.9)";
+
+
+          questionPanel.style.display =
+            "block";
+
+        }
+
+      },
+
+      {
+        passive: true
+      }
+    );
+
+
+
+    /* =================================
+       ANSWER A
+    ================================== */
+
+    answerA.addEventListener(
+      "click",
+      function (event) {
+
+        event.stopPropagation();
+
+
+        status.textContent =
+          "❌ INCORRECT — Leave the hazard area and report the danger.";
+
+
+        status.style.background =
+          "rgba(180, 0, 0, 0.9)";
+
+      }
+    );
+
+
+
+    /* =================================
+       ANSWER B
+    ================================== */
+
+    answerB.addEventListener(
+      "click",
+      function (event) {
+
+        event.stopPropagation();
+
+
+        trainingState =
+          "complete";
+
+
+        questionPanel.style.display =
+          "none";
+
+
+        status.textContent =
+          "✅ CORRECT — Safe action completed!";
+
+
+        status.style.background =
+          "rgba(0, 130, 0, 0.9)";
+
+
+        completionPanel.style.display =
+          "block";
+
+      }
+    );
+
+
+
+    /* =================================
+       ANSWER C
+    ================================== */
+
+    answerC.addEventListener(
+      "click",
+      function (event) {
+
+        event.stopPropagation();
+
+
+        status.textContent =
+          "❌ INCORRECT — Do not approach an unstable area.";
+
+
+        status.style.background =
+          "rgba(180, 0, 0, 0.9)";
+
+      }
+    );
+
+
+
+    /* =================================
+       MODULE 1 AGAIN
+    ================================== */
+
+    function restartModule1(event) {
+
+      event.preventDefault();
+
+      event.stopPropagation();
+
+
+      if (buttonLocked) {
+        return;
+      }
+
+
+      /*
+        Hide completion screen.
+      */
+
+      completionPanel.style.display =
+        "none";
+
+
+      /*
+        Reset Module 1.
+      */
+
+      trainingState =
+        "idle";
+
+
+      /*
+        Reset status.
+      */
+
+      status.textContent =
+        "🔎 Find and tap the red hazard light.";
+
+
+      status.style.background =
+        "rgba(0, 0, 0, 0.65)";
+
+    }
+
+
+
+    module1AgainButton.addEventListener(
+      "click",
+      restartModule1
+    );
+
+
+    module1AgainButton.addEventListener(
+      "touchend",
+      restartModule1,
+      {
+        passive: false
+      }
+    );
+
+
+
+    /* =================================
+       FIRE MODULE
+    ================================== */
+
+    function openFireModule(event) {
+
+      event.preventDefault();
+
+      event.stopPropagation();
+
+
+      if (buttonLocked) {
+        return;
+      }
+
+
+      buttonLocked = true;
+
+
+      trainingState =
+        "fire";
+
+
+      completionPanel.style.display =
+        "none";
+
+
+      status.textContent =
+        "🔥 FIRE SAFETY EXPERIENCE";
+
+
+      status.style.background =
+        "rgba(180, 60, 0, 0.9)";
+
+
+      /*
+        TEMPORARY TEST.
+
+        Later this will become the
+        actual Fire AR experience.
+      */
+
+      setTimeout(function () {
+
+        alert(
+          "🔥 Fire Safety Module selected!"
+        );
+
+
+        buttonLocked = false;
+
+      }, 100);
+
+    }
+
+
+
+    fireButton.addEventListener(
+      "click",
+      openFireModule
+    );
+
+
+    fireButton.addEventListener(
+      "touchend",
+      openFireModule,
+      {
+        passive: false
+      }
+    );
+
+
+
+    /* =================================
+       GAS MODULE
+    ================================== */
+
+    function openGasModule(event) {
+
+      event.preventDefault();
+
+      event.stopPropagation();
+
+
+      if (buttonLocked) {
+        return;
+      }
+
+
+      buttonLocked = true;
+
+
+      trainingState =
+        "gas";
+
+
+      completionPanel.style.display =
+        "none";
+
+
+      status.textContent =
+        "☠️ METHANE GAS SAFETY EXPERIENCE";
+
+
+      status.style.background =
+        "rgba(60, 60, 60, 0.9)";
+
+
+      /*
+        TEMPORARY TEST.
+
+        Later this will become the
+        actual Methane AR experience.
+      */
+
+      setTimeout(function () {
+
+        alert(
+          "☠️ Methane Gas Module selected!"
+        );
+
+
+        buttonLocked = false;
+
+      }, 100);
+
+    }
+
+
+
+    gasButton.addEventListener(
+      "click",
+      openGasModule
+    );
+
+
+    gasButton.addEventListener(
+      "touchend",
+      openGasModule,
+      {
+        passive: false
+      }
+    );
+
+
+  </script>
+
+</body>
+
+</html>

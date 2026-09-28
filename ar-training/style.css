@@ -1,0 +1,431 @@
+html,
+body {
+
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background: #000;
+
+  font-family: Arial, sans-serif;
+}
+
+
+
+/* =================================================
+   AR LAYER
+================================================= */
+
+a-scene {
+
+  position: fixed !important;
+
+  top: 0 !important;
+  left: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  z-index: 1 !important;
+
+  pointer-events: none !important;
+}
+
+
+
+.a-canvas {
+
+  position: fixed !important;
+
+  top: 0 !important;
+  left: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  z-index: 1 !important;
+
+  pointer-events: none !important;
+}
+
+
+
+video {
+
+  position: fixed !important;
+
+  top: 0 !important;
+  left: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  object-fit: cover !important;
+
+  z-index: 0 !important;
+
+  pointer-events: none !important;
+}
+
+
+
+/* =================================================
+   STATUS
+================================================= */
+
+#status-banner {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 10px 5px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(0, 0, 0, 0.65);
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  z-index: 2147483640;
+
+  pointer-events: none;
+}
+
+
+
+/* =================================================
+   ALL PANELS
+================================================= */
+
+#question-panel,
+#completion-panel,
+#fire-complete-panel,
+#gas-complete-panel {
+
+  position: fixed;
+
+  left: 5%;
+  right: 5%;
+
+  bottom: 25px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(0, 0, 0, 0.96);
+
+  color: white;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  z-index: 2147483646;
+
+  pointer-events: auto;
+
+  box-shadow:
+    0 5px 30px
+    rgba(0, 0, 0, 0.85);
+}
+
+
+
+/* =================================================
+   HIDDEN INITIALLY
+================================================= */
+
+#question-panel,
+#completion-panel,
+#fire-complete-panel,
+#gas-complete-panel {
+
+  display: none;
+}
+
+
+
+/* =================================================
+   HEADINGS
+================================================= */
+
+#question-panel h2,
+#completion-panel h2,
+#fire-complete-panel h2,
+#gas-complete-panel h2 {
+
+  margin-top: 0;
+
+  font-size: 22px;
+}
+
+
+
+/* =================================================
+   TEXT
+================================================= */
+
+#question-panel p,
+#completion-panel p,
+#fire-complete-panel p,
+#gas-complete-panel p {
+
+  font-size: 16px;
+
+  line-height: 1.45;
+}
+
+
+
+#completion-panel h3 {
+
+  margin-top: 20px;
+
+  font-size: 18px;
+}
+
+
+
+#score-text {
+
+  margin: 15px 0;
+
+  font-size: 20px;
+
+  font-weight: bold;
+}
+
+
+
+.final-score {
+
+  margin: 15px 0;
+
+  font-size: 21px;
+
+  font-weight: bold;
+}
+
+
+
+.mentor-message {
+
+  font-size: 15px;
+
+  opacity: 0.9;
+}
+
+
+
+/* =================================================
+   QUESTION BUTTONS
+================================================= */
+
+#question-panel button {
+
+  display: block;
+
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 14px;
+
+  box-sizing: border-box;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #eeeeee;
+
+  color: #111111;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  position: relative;
+
+  z-index: 2147483647;
+
+  pointer-events: auto;
+
+  touch-action: manipulation;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+
+#question-panel button:active {
+
+  transform: scale(0.98);
+}
+
+
+
+/* =================================================
+   EXPERIENCE BUTTONS
+================================================= */
+
+#module1-again-button,
+#fire-button,
+#gas-button,
+#fire-back-button,
+#gas-back-button {
+
+  display: block;
+
+  width: 100%;
+
+  min-height: 50px;
+
+  padding: 15px;
+
+  margin-top: 12px;
+
+  box-sizing: border-box;
+
+  border: none;
+
+  border-radius: 10px;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  position: relative;
+
+  z-index: 2147483647;
+
+  pointer-events: auto;
+
+  touch-action: manipulation;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+
+/* =================================================
+   MODULE 1 AGAIN
+================================================= */
+
+#module1-again-button {
+
+  background: #2e7d32;
+}
+
+
+
+/* =================================================
+   FIRE
+================================================= */
+
+#fire-button {
+
+  background: #d32f2f;
+}
+
+
+
+/* =================================================
+   GAS
+================================================= */
+
+#gas-button {
+
+  background: #546e7a;
+}
+
+
+
+/* =================================================
+   BACK
+================================================= */
+
+#fire-back-button,
+#gas-back-button {
+
+  background: #455a64;
+}
+
+
+
+/* =================================================
+   BUTTON PRESS
+================================================= */
+
+#module1-again-button:active,
+#fire-button:active,
+#gas-button:active,
+#fire-back-button:active,
+#gas-back-button:active {
+
+  transform: scale(0.98);
+}
+
+
+
+/* =================================================
+   MOBILE
+================================================= */
+
+@media (max-width: 500px) {
+
+  #question-panel,
+  #completion-panel,
+  #fire-complete-panel,
+  #gas-complete-panel {
+
+    left: 4%;
+    right: 4%;
+
+    padding: 18px;
+  }
+
+
+  #question-panel h2,
+  #completion-panel h2,
+  #fire-complete-panel h2,
+  #gas-complete-panel h2 {
+
+    font-size: 20px;
+  }
+
+
+  #question-panel button,
+  #module1-again-button,
+  #fire-button,
+  #gas-button,
+  #fire-back-button,
+  #gas-back-button {
+
+    font-size: 15px;
+
+    padding: 14px;
+  }
+
+}
